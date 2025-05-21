@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Futuriste - TIOMO MAMOUDOU Abdou-Karim</title>
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --secondary: #0077b6;
+            --dark: #0a192f;
+            --light: #ccd6f6;
+            --accent: #64ffda;
+        }
+        
+        body {
+            font-family: 'Orbitron', 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500&display=swap');
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(10,25,47,0.9) 0%, rgba(21,101,192,0.2) 100%);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,168,255,0.2);
+            border: 1px solid rgba(100,255,218,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .photo-container {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            padding: 5px;
+            background: var(--dark);
+            box-shadow: 0 0 20px rgba(0,168,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .photo-container::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                transparent, transparent, transparent,
+                rgba(100,255,218,0.1)
+            );
+            transform: rotate(30deg);
+            animation: shine 6s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+        
+        .photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0,168,255,0.3);
+        }
+        
+        h2 {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin: 30px 0 15px;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .info-personnelles {
+            background: rgba(0,168,255,0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 3px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-personnelles::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100,255,218,0.05), transparent);
+            pointer-events: none;
+        }
+        
+        .info-personnelles a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .info-personnelles a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 5px rgba(100,255,218,0.5);
+        }
+        
+        section {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: rgba(100,255,218,0.1);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(100,255,218,0.3);
+        }
+        
+        .glow-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--light);
+            }
+            to {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .photo-container {
+                margin: 0 auto 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1 class="glow-text">TIOMO MAMOUDOU <span style="color: var(--accent)">Abdou-Karim</span></h1>
+                <p style="color: var(--primary); font-weight: 500;">DÉVELOPPEUR WEB & INNOVATEUR CRÉATIF</p>
+            </div>
+            <div class="photo-container">
+                <!-- Remplacez "chemin/vers/votre/photo.jpg" par le chemin réel de votre photo -->
+                <img src="profif.jpg" alt="Photo de profil" class="photo">
+            </div>
+        </header>
+
+        <div class="info-personnelles">
+            <strong>Date de naissance :</strong> 22/09/2004<br>
+            <strong>Téléphone :</strong> +237 697 73 93 32<br>
+            <strong>Email :</strong> <a href="mailto:rayanlamelo778@gmail.com">rayanlamelo778@gmail.com</a>
+        </div>
+
+        <section>
+            <h2>PROFIL PROFESSIONNEL</h2>
+            <p>
+                Passionné par les technologies émergentes, je combine créativité et expertise technique pour développer des solutions web innovantes. 
+                Mon objectif est d'apporter une vision futuriste aux projets digitaux tout en résolvant des problèmes complexes. 
+                Je recherche un environnement dynamique où je pourrai contribuer à des projets ambitieux et évoluer professionnellement.
+            </p>
+            <div style="margin-top: 15px;">
+                <span class="tag">HTML5</span>
+                <span class="tag">CSS3</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Innovation</span>
+                <span class="tag">UI/UX</span>
+            </div>
+        </section>
+
+        <div class="grid-container">
+            <section>
+                <h2>COMPÉTENCES TECHNIQUES</h2>
+                <ul>
+                    <li>Développement Front-end avancé</li>
+                    <li>Conception d'interfaces utilisateur modernes</li>
+                    <li>Résolution de problèmes algorithmiques</li>
+                    <li>Optimisation des performances web</li>
+                    <li>Collaboration en équipe agile</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>FORMATIONS</h2>
+                <ul>
+                    <li><strong>2023-2024</strong> : BACC D - Collège Polyvalent Bilingue LES PRODIGES</li>
+                    <li><strong>2022-2023</strong> : Probatoire D - CPB LES PRODIGES</li>
+                    <li><strong>2020-2021</strong> : BEPC - Lycée Bilingue de Bafoussam</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>EXPÉRIENCES PROFESSIONNELLES</h2>
+                <ul>
+                    <li><strong>2023-2024</strong> : Stage académique en développement web - ISTIA-CAMEROUN</li>
+                    <li><strong>2023-2024</strong> : Stage professionnel en création numérique - E-JARA</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>LANGUES</h2>
+                <ul>
+                    <li>Français : Courant</li>
+                    <li>Anglais : Intermédiaire</li>
+                    <li>Espagnol : Notions</li>
+                </ul>
+            </section>
+        </div>
+
+        <section>
+            <h2>INTÉRÊTS & PASSIONS</h2>
+            <ul>
+                <li>Technologies émergentes (IA, Blockchain)</li>
+                <li>Musique électronique et production</li>
+                <li>Esport et gaming compétitif</li>
+                <li>Design futuriste et cyberpunk</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
